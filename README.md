@@ -116,7 +116,7 @@ Post Implementation Review
 
 ## I'm designing a new product
 
-➡️ `design/product-tsd.md`
+➡️ [design/product-tsd.md](design/product-tsd.md)
 
 Describes the overall product architecture, capabilities, integrations, technologies, security model, operational model, and long-term technical baseline.
 
@@ -124,7 +124,7 @@ Describes the overall product architecture, capabilities, integrations, technolo
 
 ## I'm implementing a new project or enhancement
 
-➡️ `design/project-tsd.md`
+➡️ [design/project-tsd.md](design/project-tsd.md)
 
 Documents the technical solution for a specific project, enhancement, feature, or major change.
 
@@ -138,7 +138,7 @@ References:
 
 ## I need to record an architecture decision
 
-➡️ `design/architecture-decision-record.md`
+➡️ [design/architecture-decision-record.md](design/architecture-decision-record.md)
 
 Documents significant architectural decisions, trade-offs, alternatives considered, and rationale.
 
@@ -146,7 +146,7 @@ Documents significant architectural decisions, trade-offs, alternatives consider
 
 ## I need architecture approval
 
-➡️ `governance/architecture-review-checklist.md`
+➡️ [governance/architecture-review-checklist.md](governance/architecture-review-checklist.md)
 
 Provides review criteria before implementation or production deployment.
 
@@ -154,7 +154,7 @@ Provides review criteria before implementation or production deployment.
 
 ## I need to review a design before development
 
-➡️ `governance/design-review-checklist.md`
+➡️ [governance/design-review-checklist.md](governance/design-review-checklist.md)
 
 Provides review criteria for technical solution designs before implementation.
 
@@ -162,7 +162,7 @@ Provides review criteria for technical solution designs before implementation.
 
 ## I need to define when work is complete
 
-➡️ `governance/definition-of-done.md`
+➡️ [governance/definition-of-done.md](governance/definition-of-done.md)
 
 Defines mandatory completion criteria for stories, sprints, releases, and projects.
 
@@ -170,7 +170,7 @@ Defines mandatory completion criteria for stories, sprints, releases, and projec
 
 ## I need API standards
 
-➡️ `architecture/api-design-standard.md`
+➡️ [architecture/api-design-standard.md](architecture/api-design-standard.md)
 
 Defines enterprise API design conventions.
 
@@ -178,7 +178,7 @@ Defines enterprise API design conventions.
 
 ## I need database standards
 
-➡️ `architecture/database-design-standard.md`
+➡️ [architecture/database-design-standard.md](architecture/database-design-standard.md)
 
 Defines naming conventions, migration strategy, indexing, constraints, and database governance.
 
@@ -186,7 +186,7 @@ Defines naming conventions, migration strategy, indexing, constraints, and datab
 
 ## I need integration standards
 
-➡️ `architecture/integration-standard.md`
+➡️ [architecture/integration-standard.md](architecture/integration-standard.md)
 
 Defines standards for REST, Messaging, Kafka, Events, Batch, and External Integrations.
 
@@ -194,7 +194,7 @@ Defines standards for REST, Messaging, Kafka, Events, Batch, and External Integr
 
 ## I need security standards
 
-➡️ `architecture/security-standard.md`
+➡️ [architecture/security-standard.md](architecture/security-standard.md)
 
 Defines authentication, authorization, encryption, secrets management, and audit logging requirements.
 
@@ -202,7 +202,7 @@ Defines authentication, authorization, encryption, secrets management, and audit
 
 ## I need non-functional requirements
 
-➡️ `architecture/non-functional-requirements.md`
+➡️ [architecture/non-functional-requirements.md](architecture/non-functional-requirements.md)
 
 Defines enterprise quality attributes such as performance, scalability, availability, resilience, and observability.
 
@@ -210,7 +210,7 @@ Defines enterprise quality attributes such as performance, scalability, availabi
 
 ## I'm preparing a production release
 
-➡️ `release/release-management.md`
+➡️ [release/release-management.md](release/release-management.md)
 
 Defines deployment strategy, environment promotion, rollback plan, hypercare, and release governance.
 
@@ -218,7 +218,7 @@ Defines deployment strategy, environment promotion, rollback plan, hypercare, an
 
 ## I need release validation
 
-➡️ `release/release-checklist.md`
+➡️ [release/release-checklist.md](release/release-checklist.md)
 
 Provides the mandatory release readiness checklist before deployment.
 
@@ -226,7 +226,7 @@ Provides the mandatory release readiness checklist before deployment.
 
 ## I need release documentation
 
-➡️ `release/release-notes-template.md`
+➡️ [release/release-notes-template.md](release/release-notes-template.md)
 
 Standard template for communicating release content.
 
@@ -234,7 +234,7 @@ Standard template for communicating release content.
 
 ## I need to review the implementation after production
 
-➡️ `release/post-implementation-review.md`
+➡️ [release/post-implementation-review.md](release/post-implementation-review.md)
 
 Captures lessons learned, incidents, improvements, and follow-up actions.
 
@@ -242,7 +242,7 @@ Captures lessons learned, incidents, improvements, and follow-up actions.
 
 ## I need to hand over the application to Operations
 
-➡️ `operations/operational-runbook.md`
+➡️ [operations/operational-runbook.md](operations/operational-runbook.md)
 
 Provides operational procedures, monitoring, dashboards, alerting, escalation paths, and support guidance.
 
@@ -250,7 +250,7 @@ Provides operational procedures, monitoring, dashboards, alerting, escalation pa
 
 ## Production incident occurred
 
-➡️ `operations/incident-runbook.md`
+➡️ [operations/incident-runbook.md](operations/incident-runbook.md)
 
 Defines incident handling procedures, investigation flow, communication, and recovery process.
 
@@ -258,7 +258,7 @@ Defines incident handling procedures, investigation flow, communication, and rec
 
 ## I need monitoring standards
 
-➡️ `operations/monitoring-observability.md`
+➡️ [operations/monitoring-observability.md](operations/monitoring-observability.md)
 
 Defines logging, metrics, tracing, dashboards, alerts, and observability practices.
 
@@ -266,7 +266,7 @@ Defines logging, metrics, tracing, dashboards, alerts, and observability practic
 
 ## I need rollback procedures
 
-➡️ `operations/rollback-procedure.md`
+➡️ [operations/rollback-procedure.md](operations/rollback-procedure.md)
 
 Documents application, database, infrastructure, and configuration rollback strategies.
 
@@ -274,7 +274,7 @@ Documents application, database, infrastructure, and configuration rollback stra
 
 ## I need diagram templates
 
-➡️ `templates/`
+➡️ [templates/](templates/)
 
 Contains Draw.io, PlantUML, and Mermaid templates for architecture diagrams.
 
@@ -282,7 +282,7 @@ Contains Draw.io, PlantUML, and Mermaid templates for architecture diagrams.
 
 ## I need real-world examples
 
-➡️ `examples/sample-product/` and `examples/sample-project/`
+➡️ [examples/sample-product/](examples/sample-product/) and [examples/sample-project/](examples/sample-project/)
 
 Contains realistic enterprise examples using a fictional company (NexaPay).
 
