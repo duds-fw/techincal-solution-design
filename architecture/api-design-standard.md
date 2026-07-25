@@ -23,7 +23,33 @@ This standard applies to:
 
 ---
 
-# 2. Design Principles
+# 2. Objectives
+
+This standard aims to:
+
+- Ensure consistent API design across teams.
+- Reduce integration friction.
+- Improve API discoverability.
+- Support API governance.
+- Enable safe API evolution.
+- Improve consumer experience.
+
+---
+
+# 3. Scope
+
+This standard applies to:
+
+- All RESTful APIs
+- GraphQL APIs (where applicable)
+- gRPC APIs (where applicable)
+- Internal service-to-service APIs
+- External partner APIs
+- Public APIs
+
+---
+
+# 4. Design Principles
 
 Every API should be:
 
@@ -40,7 +66,7 @@ Every API should be:
 
 ---
 
-# 3. Resource Naming
+# 5. Resource Naming
 
 Use nouns.
 
@@ -50,7 +76,7 @@ Good
 /customers
 /customers/{id}
 /orders
-/orders/{id}
+/orders/{id}/items
 ```
 
 Avoid
@@ -63,19 +89,19 @@ Avoid
 
 ---
 
-# 4. HTTP Methods
+# 6. HTTP Methods
 
-| Method | Purpose |
-|---------|----------|
-| GET | Retrieve resource |
-| POST | Create resource |
-| PUT | Replace resource |
-| PATCH | Partial update |
-| DELETE | Delete resource |
+| Method | Purpose | Idempotent | Safe |
+|---------|----------|------------|------|
+| GET | Retrieve resource | Yes | Yes |
+| POST | Create resource | No | No |
+| PUT | Replace resource | Yes | No |
+| PATCH | Partial update | Conditional | No |
+| DELETE | Delete resource | Yes | No |
 
 ---
 
-# 5. URI Convention
+# 7. URI Convention
 
 Use:
 
@@ -91,32 +117,40 @@ Avoid:
 
 Rules:
 
-- lowercase
-- plural nouns
-- hyphen-separated words
-- no verbs
-- no file extensions
+- Lowercase
+- Plural nouns
+- Hyphen-separated words
+- No verbs
+- No file extensions
 
 ---
 
-# 6. Versioning Strategy
+# 8. Versioning Strategy
 
 Supported strategies:
 
-- URI Versioning
-- Header Versioning
+| Strategy | Usage |
+|----------|-------|
+| URI Versioning | `/api/v1/customers` |
+| Header Versioning | `Accept: application/vnd.api.v1+json` |
 
-Default enterprise recommendation:
-
-```
-/api/v1/
-```
+Default enterprise recommendation: URI Versioning.
 
 Breaking changes require a new major version.
 
+### Versioning Rules
+
+| Change Type | Version Impact |
+|-------------|---------------|
+| New optional field | Minor |
+| New endpoint | Minor |
+| Removing field | Major |
+| Changing type | Major |
+| Changing semantics | Major |
+
 ---
 
-# 7. Request Design
+# 9. Request Design
 
 Every request should define:
 
@@ -131,7 +165,7 @@ Use UTC unless otherwise specified.
 
 ---
 
-# 8. Response Design
+# 10. Response Design
 
 Successful responses should be predictable.
 
@@ -151,14 +185,17 @@ Collection
 ```json
 {
   "data": [
-    {}
+    {
+      "id": "12345",
+      "name": "John Doe"
+    }
   ]
 }
 ```
 
 ---
 
-# 9. Error Response
+# 11. Error Response
 
 Every API should return standardized errors.
 
@@ -169,20 +206,20 @@ Example
   "error": {
     "code": "CUSTOMER_NOT_FOUND",
     "message": "Customer not found.",
-    "traceId": "..."
+    "traceId": "abc-123"
   }
 }
 ```
 
 Do not expose:
 
-- stack trace
+- Stack trace
 - SQL errors
-- internal implementation
+- Internal implementation details
 
 ---
 
-# 10. HTTP Status Codes
+# 12. HTTP Status Codes
 
 | Status | Usage |
 |----------|------|
@@ -202,7 +239,7 @@ Do not expose:
 
 ---
 
-# 11. Pagination
+# 13. Pagination
 
 Recommended:
 
@@ -226,7 +263,7 @@ Response
 
 ---
 
-# 12. Filtering
+# 14. Filtering
 
 Use query parameters.
 
@@ -234,19 +271,22 @@ Example
 
 ```
 GET /orders?status=PAID
+GET /orders?status=PAID&createdAt=2024-01-01..2024-12-31
 ```
 
 ---
 
-# 13. Sorting
+# 15. Sorting
 
 ```
 GET /orders?sort=createdAt,-amount
 ```
 
+Prefix `-` for descending order.
+
 ---
 
-# 14. Authentication
+# 16. Authentication
 
 Supported:
 
@@ -259,7 +299,7 @@ Never implement custom authentication.
 
 ---
 
-# 15. Authorization
+# 17. Authorization
 
 Authorization must be enforced by backend.
 
@@ -267,4 +307,141 @@ Never rely on UI permissions.
 
 ---
 
-# 16. Idempotency
+# 18. Idempotency
+
+All mutating operations should support idempotency.
+
+| Method | Idempotency |
+|--------|-------------|
+| POST | Via `Idempotency-Key` header |
+| PUT | Inherently idempotent |
+| PATCH | Via `Idempotency-Key` header |
+| DELETE | Inherently idempotent |
+
+Idempotency Key:
+
+- Unique per client request
+- Valid for 24 hours
+- Stored server-side
+
+---
+
+# 19. Rate Limiting
+
+Every external API should implement rate limiting.
+
+Response Headers:
+
+```text
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+When limit exceeded return `429 Too Many Requests`.
+
+---
+
+# 20. API Documentation
+
+Every API should be documented using OpenAPI 3.0+.
+
+Required documentation:
+
+- Endpoint description
+- Request schema
+- Response schema
+- Error codes
+- Authentication requirements
+- Example requests
+- Example responses
+
+---
+
+# 21. API Security
+
+Minimum security requirements:
+
+- TLS 1.2+
+- OAuth 2.1 / OpenID Connect
+- Input validation
+- Output encoding
+- Rate limiting
+- CORS policy
+- Request size limits
+- Timeout configuration
+
+Reference: ../architecture/security-standard.md
+
+---
+
+# 22. API Observability
+
+Every API should expose:
+
+- Structured logs
+- Request ID propagation
+- Latency metrics
+- Error rate metrics
+- Throughput metrics
+
+Reference: ../operations/monitoring-observability.md
+
+---
+
+# 23. API Lifecycle
+
+| Phase | Description |
+|-------|-------------|
+| Design | API reviewed and approved |
+| Development | API implemented |
+| Testing | API validated |
+| Published | API documented and available |
+| Maintained | API actively supported |
+| Deprecated | API scheduled for removal |
+| Retired | API no longer available |
+
+---
+
+# 24. Best Practices
+
+| Practice | Description |
+|----------|-------------|
+| Use standard HTTP methods | GET, POST, PUT, PATCH, DELETE |
+| Use plural nouns | `/customers` not `/customer` |
+| Use hierarchical URIs | `/customers/{id}/orders` |
+| Support filtering | Use query parameters |
+| Support pagination | For collection endpoints |
+| Return proper status codes | Match semantic meaning |
+| Validate input | Reject invalid requests early |
+| Implement rate limiting | Protect against abuse |
+| Document with OpenAPI | Enable discoverability |
+| Version your APIs | Support evolution |
+| Use consistent error format | Standardize error responses |
+| Log all requests | Enable debugging |
+
+---
+
+# 25. Anti-Patterns
+
+| Anti-Pattern | Why It Is Wrong |
+|-------------|----------------|
+| Verbs in URLs | REST is resource-oriented |
+| Version in body | Hard to route |
+| Returning stack traces | Security risk |
+| No pagination | Performance risk |
+| No rate limiting | Abuse risk |
+| Custom authentication | Security risk |
+| Tight coupling | Reduces flexibility |
+| Ignoring HTTP semantics | Inconsistent behavior |
+
+---
+
+# 26. References
+
+- ../design/product-tsd.md
+- ../design/project-tsd.md
+- ../architecture/security-standard.md
+- ../architecture/integration-standard.md
+- ../architecture/non-functional-requirements.md
+- ../operations/monitoring-observability.md

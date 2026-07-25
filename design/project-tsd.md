@@ -3,8 +3,8 @@
 | Document Information | |
 |----------------------|------------------------------------------------|
 | Document Name | Technical Solution Design |
-| Project | <Project Name> |
-| Product | <Product Name> |
+| Project | \<Project Name\> |
+| Product | \<Product Name\> |
 | Project Code | |
 | Version | 1.0 |
 | Status | Draft / Review / Approved |
@@ -20,28 +20,28 @@
 
 ## Description
 
-Technical Solution Design (TSD) mendokumentasikan desain teknis suatu perubahan (project, enhancement, epic, atau major change) terhadap sebuah produk atau sistem.
+The Technical Solution Design (Project TSD) documents the technical design of a specific change (project, enhancement, epic, or major change) to a product or system.
 
-Dokumen ini menjadi referensi utama bagi seluruh stakeholder teknis selama lifecycle perubahan, mulai dari design, development, testing, deployment, operational handover, hingga future enhancement.
+This document serves as the primary reference for all technical stakeholders throughout the lifecycle of the change, from design, development, testing, deployment, operational handover, to future enhancement.
 
-TSD memastikan implementasi tetap selaras dengan Enterprise Architecture, Technology Standards, Security Standards, dan Operational Standards yang berlaku di organisasi.
+The TSD ensures implementation remains aligned with Enterprise Architecture, Technology Standards, Security Standards, and Operational Standards applicable to the organization.
 
 ---
 
 # 2. Objectives
 
-Dokumen ini bertujuan untuk:
+This document aims to:
 
-- Menerjemahkan Business Requirement menjadi solusi teknis.
-- Menjadi acuan implementasi developer.
-- Menjadi baseline design review.
-- Menjadi guardrail implementasi.
-- Mendokumentasikan seluruh perubahan teknis.
-- Mendukung impact analysis.
-- Menjadi referensi deployment.
-- Menjadi referensi operational handover.
-- Menjadi knowledge repository.
-- Menjadi baseline untuk enhancement berikutnya.
+- Translate Business Requirements into technical solutions.
+- Serve as the implementation reference for developers.
+- Serve as the baseline for design reviews.
+- Serve as the guardrail for implementation.
+- Document all technical changes.
+- Support impact analysis.
+- Serve as the deployment reference.
+- Serve as the operational handover reference.
+- Serve as a knowledge repository.
+- Serve as the baseline for future enhancements.
 
 ---
 
@@ -56,7 +56,7 @@ Dokumen ini bertujuan untuk:
 | Developer | Implementation |
 | QA | Testing |
 | DevOps | Deployment |
-| IT Operation | Operational support |
+| IT Operations | Operational support |
 | SRE | Monitoring |
 | Security | Security review |
 
@@ -80,14 +80,14 @@ Dokumen ini bertujuan untuk:
 
 ## Description
 
-Menjelaskan alasan bisnis mengapa perubahan dilakukan.
+Explain the business rationale for the change.
 
-Harus menjawab:
+Must answer:
 
-- Masalah apa yang ingin diselesaikan?
-- Mengapa solusi ini diperlukan?
-- Apa business value yang dihasilkan?
-- Apa risiko jika perubahan tidak dilakukan?
+- What problem are we trying to solve?
+- Why is this solution needed?
+- What business value is produced?
+- What is the risk if the change is not made?
 
 ---
 
@@ -95,6 +95,8 @@ Harus menjawab:
 
 | ID | Requirement | Priority | Acceptance Criteria |
 |----|-------------|----------|---------------------|
+| BR-001 | | | |
+| BR-002 | | | |
 
 ---
 
@@ -102,19 +104,19 @@ Harus menjawab:
 
 ## In Scope
 
-Daftar pekerjaan yang termasuk dalam project.
+List of work included in the project.
 
 ## Out of Scope
 
-Daftar pekerjaan yang secara eksplisit tidak termasuk.
+List of work explicitly excluded.
 
 ## Assumptions
 
-Semua asumsi yang digunakan selama design.
+All assumptions used during design.
 
 ## Constraints
 
-Constraint teknis maupun bisnis.
+Technical and business constraints.
 
 ---
 
@@ -122,9 +124,9 @@ Constraint teknis maupun bisnis.
 
 ## Description
 
-Menjelaskan kondisi sistem saat ini.
+Describe the current state of the system.
 
-Minimal mencakup:
+Must cover at minimum:
 
 - Existing Architecture
 - Existing Flow
@@ -133,9 +135,9 @@ Minimal mencakup:
 - Existing Database
 - Existing Integration
 - Existing Security
-- Existing Limitation
+- Existing Limitations
 
-Diagram sangat disarankan.
+Diagrams are strongly recommended.
 
 ---
 
@@ -143,9 +145,9 @@ Diagram sangat disarankan.
 
 ## Description
 
-Menjelaskan desain solusi yang akan diimplementasikan.
+Describe the solution design to be implemented.
 
-Minimal mencakup:
+Must cover at minimum:
 
 - Functional Flow
 - Architecture Diagram
@@ -164,9 +166,9 @@ Minimal mencakup:
 
 ## Description
 
-Menjelaskan bagaimana solusi tetap mematuhi Enterprise Architecture.
+Explain how the solution complies with Enterprise Architecture.
 
-Harus mencakup:
+Must cover:
 
 - Business Architecture
 - Application Architecture
@@ -174,7 +176,7 @@ Harus mencakup:
 - Technology Architecture
 - Security Architecture
 
-Jika terdapat deviation, wajib dijelaskan beserta approval-nya.
+If deviations exist, they must be documented with approval.
 
 ---
 
@@ -182,7 +184,7 @@ Jika terdapat deviation, wajib dijelaskan beserta approval-nya.
 
 ## Description
 
-Mengidentifikasi seluruh area yang terdampak.
+Identify all impacted areas.
 
 | Area | Impact | Description | Owner |
 |------|--------|-------------|-------|
@@ -201,9 +203,9 @@ Mengidentifikasi seluruh area yang terdampak.
 
 ## Description
 
-Daftar seluruh service/component yang mengalami perubahan.
+List all services or components that will change.
 
-Untuk setiap component jelaskan:
+For each component describe:
 
 - Responsibility
 - Change Summary
@@ -213,25 +215,29 @@ Untuk setiap component jelaskan:
 
 # 13. API Changes
 
-Untuk setiap endpoint:
+For each endpoint:
 
-- Endpoint
-- HTTP Method
-- Authentication
-- Authorization
-- Request
-- Response
-- Error Codes
-- Validation
-- Rate Limit
-- Versioning
-- Backward Compatibility
+| Field | Description |
+|-------|-------------|
+| Endpoint | |
+| HTTP Method | |
+| Authentication | |
+| Authorization | |
+| Request | |
+| Response | |
+| Error Codes | |
+| Validation | |
+| Rate Limit | |
+| Versioning | |
+| Backward Compatibility | |
+
+Reference: ../architecture/api-design-standard.md
 
 ---
 
 # 14. Database Changes
 
-Minimal mencakup:
+Minimum coverage:
 
 - ERD
 - New Table
@@ -242,13 +248,15 @@ Minimal mencakup:
 - Rollback Strategy
 - Data Retention
 
+Reference: ../architecture/database-design-standard.md
+
 ---
 
 # 15. Integration Changes
 
-Seluruh perubahan integrasi.
+All integration changes.
 
-Misalnya:
+Examples:
 
 - Internal API
 - External API
@@ -260,13 +268,15 @@ Misalnya:
 - SMS
 - Third-party Service
 
+Reference: ../architecture/integration-standard.md
+
 ---
 
 # 16. Configuration Changes
 
-Semua perubahan konfigurasi.
+All configuration changes.
 
-Contoh:
+Examples:
 
 - Environment Variable
 - Secret
@@ -281,7 +291,7 @@ Contoh:
 
 # 17. Security Assessment
 
-Harus menjelaskan:
+Must explain:
 
 - Authentication
 - Authorization
@@ -292,26 +302,32 @@ Harus menjelaskan:
 - OWASP Consideration
 - Vulnerability Impact
 
+Reference: ../architecture/security-standard.md
+
 ---
 
-# 18. Non Functional Requirements
+# 18. Non-Functional Requirements
 
-Minimal:
+Minimum coverage:
 
-- Availability
-- Performance
-- Capacity
-- Scalability
-- Reliability
-- Maintainability
-- Observability
-- Compliance
+| Category | Target |
+|----------|--------|
+| Availability | |
+| Performance | |
+| Capacity | |
+| Scalability | |
+| Reliability | |
+| Maintainability | |
+| Observability | |
+| Compliance | |
+
+Reference: ../architecture/non-functional-requirements.md
 
 ---
 
 # 19. Testing Strategy
 
-Harus menjelaskan:
+Must explain:
 
 - Unit Test
 - Integration Test
@@ -328,70 +344,62 @@ Harus menjelaskan:
 
 ## Release Scope
 
-Fitur yang masuk release.
+Features included in the release.
 
 ## Version
 
-Menggunakan Semantic Versioning.
+Using Semantic Versioning.
 
 ## Branch Strategy
 
-Jelaskan branching yang digunakan.
+Describe branching strategy used.
 
 ## Deployment Sequence
 
-Urutan deployment.
+Deployment order.
 
 ## Environment Promotion
 
+```text
 DEV
-
-↓
-
+  ↓
 SIT
-
-↓
-
+  ↓
 UAT
-
-↓
-
+  ↓
 PREPROD
-
-↓
-
+  ↓
 PROD
+```
 
 ## Rollback Strategy
 
-Langkah rollback aplikasi, database, konfigurasi, dan feature flag.
+Rollback steps for application, database, configuration, and feature flags.
 
 ## Smoke Test
 
-Daftar validasi setelah deployment.
+Post-deployment validation list.
 
 ## Hypercare
 
-Durasi monitoring setelah release.
+Post-release monitoring duration.
 
 ## Release Checklist
 
-- Architecture Approved
-- CAB Approved
-- QA Approved
-- Security Approved
-- DBA Approved
-- Operations Ready
-- Monitoring Ready
-- Rollback Validated
+- [ ] Architecture Approved
+- [ ] CAB Approved
+- [ ] QA Approved
+- [ ] Security Approved
+- [ ] DBA Approved
+- [ ] Operations Ready
+- [ ] Monitoring Ready
+- [ ] Rollback Validated
 
 ---
 
 # 21. Operational Readiness
 
-Menjelaskan kesiapan operasional.
-
-Minimal mencakup:
+Must cover:
 
 - Dashboard
 - Monitoring
@@ -408,12 +416,13 @@ Minimal mencakup:
 # 22. Risks & Dependencies
 
 | Risk | Impact | Mitigation | Owner |
+|------|--------|------------|-------|
 
 ---
 
 # 23. Acceptance Criteria
 
-Seluruh kondisi yang harus terpenuhi agar project dianggap selesai secara teknis.
+All conditions that must be met for the project to be considered technically complete.
 
 ---
 
@@ -428,3 +437,20 @@ Seluruh kondisi yang harus terpenuhi agar project dianggap selesai secara teknis
 - Configuration
 - ADR
 - Release Notes
+
+---
+
+# See Also
+
+- ../design/product-tsd.md
+- ../design/architecture-decision-record.md
+- ../architecture/api-design-standard.md
+- ../architecture/database-design-standard.md
+- ../architecture/security-standard.md
+- ../architecture/integration-standard.md
+- ../architecture/non-functional-requirements.md
+- ../governance/architecture-review-checklist.md
+- ../governance/design-review-checklist.md
+- ../release/release-management.md
+- ../release/release-checklist.md
+- ../operations/operational-runbook.md
